@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSA Softeng - Desenvolvimento de Software</title>
+    <title>GSA Tech - Engenharia de Software & Desenvolvimento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,26 +13,29 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #1e293b;
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            color: #ffffff;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -43,154 +47,360 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ffffff;
         }
 
         .logo img {
-            width: 140px;
+            width: 50px;
             height: 50px;
             border-radius: 8px;
             object-fit: cover;
+            object-position: center;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #ffffff 0%, #32cd32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
-            color: #ffd700;
+            color: #32cd32;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #2563eb, #32cd32);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #32cd32 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
+            position: relative;
             color: white;
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="%2332cd32" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>') center/cover;
+            opacity: 0.3;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(50, 205, 50, 0.1);
+            border: 1px solid rgba(50, 205, 50, 0.3);
+            color: #32cd32;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #32cd32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            background: #ffd700;
-            color: #1e3c72;
-            padding: 15px 30px;
+            background: linear-gradient(135deg, #32cd32 0%, #2563eb 100%);
+            color: white;
+            padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
         }
 
         .cta-button:hover {
-            background: #ffed4a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(50, 205, 50, 0.4);
         }
 
-        /* WhatsApp button special styling */
-        .cta-button:hover {
-            background: #25d366;
-            color: white;
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #32cd32;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            opacity: 0.7;
+        }
+
+        .tech-icon {
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.2);
+            opacity: 1;
         }
 
         /* Services Section */
         .services {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: #f3f4f6;
+            position: relative;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e3c72;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #32cd32);
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.2);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #32cd32);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #1e3c72;
+            color: #1e293b;
         }
 
         .service-card p {
-            color: #666;
-            line-height: 1.6;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: #32cd32;
+            font-weight: bold;
         }
 
         /* Portfolio Section */
         .portfolio {
-            padding: 80px 0;
-            background: #f8f9fa;
+            padding: 100px 0;
+            background: white;
+            position: relative;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 49%, rgba(37, 99, 235, 0.02) 50%, transparent 51%);
+            background-size: 20px 20px;
         }
 
         .portfolio-category {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .portfolio-category h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #1e3c72;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #1e293b;
             text-align: center;
+            position: relative;
+        }
+
+        .portfolio-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #32cd32);
+            border-radius: 2px;
         }
 
         /* Carousel */
@@ -330,29 +540,139 @@
 
         /* Contact Section */
         .contact {
-            padding: 80px 0;
-            background: #1e3c72;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%2332cd32" opacity="0.1"/></svg>') repeat;
+            background-size: 50px 50px;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
         }
 
         .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #32cd32, #2563eb);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
         /* Footer */
         footer {
-            background: #0f1419;
+            background: #1e293b;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2563eb 0%, #32cd32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-copy {
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(37, 99, 235, 0.1);
+            padding-top: 2rem;
         }
 
         /* Responsive */
@@ -360,23 +680,62 @@
             .header-content {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 0 1rem;
             }
 
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
+            .logo {
+                font-size: 1.2rem;
             }
 
             nav ul {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tech-icons {
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .tech-icon {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
             }
 
             .carousel img {
@@ -410,6 +769,37 @@
             .app-carousel-container .carousel-btn.next {
                 right: -30px;
             }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                padding: 1rem;
+            }
+
+            .footer-social {
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -418,14 +808,16 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <img src="assets/logo/logo.jpeg" alt="GSA Softeng Logo">
+                <!-- <img src="assets/logo/logo.jpeg" alt="GSA Tech Logo"> -->
+                <span class="logo-text">GSA SoftEng</span>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#services">Serviços</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="https://wa.me/5531984926620?text=Olá! Vim pelo site da GSA Softeng." target="_blank">📱 Contato</a></li>
+                    <li><a href="#contact">Sobre</a></li>
+                    <li><a href="https://wa.me/5531984926620?text=Olá! Vim pelo site da GSA Tech." target="_blank" class="contact-btn">💬 Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -434,36 +826,73 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Transformamos suas ideias em soluções digitais</h2>
-            <p>Desenvolvimento de software de alta qualidade para impulsionar o seu negócio</p>
-            <a href="https://wa.me/5531984926620?text=Olá! Gostaria de conhecer mais sobre os serviços da GSA Softeng." class="cta-button" target="_blank">📱 Fale Conosco</a>
+            <div class="hero-badge">🚀 Excelência em Engenharia de Software</div>
+            <h1>Construindo o Futuro com Código</h1>
+            <p class="hero-subtitle">Desenvolvimento full-stack, arquitetura em nuvem e soluções inovadoras que escalam com as necessidades do seu negócio</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5531984926620?text=Olá! Gostaria de saber mais sobre os serviços da GSA Tech." class="cta-button" target="_blank">🚀 Iniciar Projeto</a>
+                <a href="#portfolio" class="cta-button secondary">📂 Ver Trabalhos</a>
+            </div>
+            <div class="tech-icons">
+                <span class="tech-icon" title="React">⚛️</span>
+                <span class="tech-icon" title="Node.js">🟢</span>
+                <span class="tech-icon" title="Python">🐍</span>
+                <span class="tech-icon" title="Cloud">☁️</span>
+                <span class="tech-icon" title="Mobile">📱</span>
+                <span class="tech-icon" title="AI/ML">🤖</span>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
+            <h2 class="section-title">Excelência em Engenharia</h2>
+            <p class="section-subtitle">Soluções de software abrangentes construídas com tecnologias modernas e melhores práticas</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Sites Completos</h3>
-                    <p>Desenvolvemos sites responsivos e modernos, desde landing pages até portais corporativos complexos com as melhores práticas de UX/UI.</p>
+                    <div class="service-icon">⚛️</div>
+                    <h3>Desenvolvimento Full-Stack</h3>
+                    <p>Aplicações web completas usando React, Node.js e frameworks modernos. Arquitetura escalável com código limpo e sustentável.</p>
+                    <ul class="service-features">
+                        <li>Frontend React/Next.js</li>
+                        <li>Backend Node.js/Python</li>
+                        <li>Design e Otimização de Banco de Dados</li>
+                        <li>APIs RESTful e GraphQL</li>
+                    </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📱</div>
-                    <h3>Apps Completos</h3>
-                    <p>Criamos aplicativos mobile nativos e híbridos para iOS e Android, com foco na experiência do usuário e performance.</p>
+                    <h3>Engenharia Mobile</h3>
+                    <p>Aplicações móveis nativas e multiplataforma com foco em performance, experiência do usuário e recursos específicos da plataforma.</p>
+                    <ul class="service-features">
+                        <li>Desenvolvimento React Native</li>
+                        <li>iOS e Android Nativo</li>
+                        <li>Progressive Web Apps</li>
+                        <li>Otimização para App Store</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔗</div>
-                    <h3>Integração de APIs</h3>
-                    <p>Integramos sistemas e serviços através de APIs robustas, garantindo comunicação eficiente entre plataformas.</p>
+                    <div class="service-icon">☁️</div>
+                    <h3>Arquitetura em Nuvem</h3>
+                    <p>Design e implementação de infraestrutura em nuvem escalável usando AWS, Azure e práticas modernas de DevOps.</p>
+                    <ul class="service-features">
+                        <li>Arquitetura de Microsserviços</li>
+                        <li>Orquestração de Containers</li>
+                        <li>Pipelines CI/CD</li>
+                        <li>Infraestrutura como Código</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>E-commerce</h3>
-                    <p>Desenvolvemos lojas virtuais completas com sistemas de pagamento, gestão de estoque e painéis administrativos.</p>
+                    <div class="service-icon">🤖</div>
+                    <h3>Soluções de IA e Dados</h3>
+                    <p>Integração de machine learning, análise de dados e automação inteligente para gerar insights e eficiência nos negócios.</p>
+                    <ul class="service-features">
+                        <li>Modelos de Machine Learning</li>
+                        <li>Engenharia de Pipeline de Dados</li>
+                        <li>Recursos Alimentados por IA</li>
+                        <li>Business Intelligence</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -472,11 +901,12 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Nosso Portfólio</h2>
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <p class="section-subtitle">Aplicações do mundo real demonstrando nossa expertise técnica e soluções inovadoras</p>
             
-            <!-- Sites Completos -->
+            <!-- Web Applications -->
             <div class="portfolio-category">
-                <h3>Sites Completos</h3>
+                <h3>Aplicações Web</h3>
                 <div class="carousel-container">
                     <div class="carousel" id="sites-carousel">
                         <img src="assets/odonto/Screenshot 2025-08-11 at 10.36.47.png" alt="Projeto Odonto 1">
@@ -497,9 +927,9 @@
                 </div>
             </div>
 
-            <!-- Apps Completos -->
+            <!-- Mobile Applications -->
             <div class="portfolio-category">
-                <h3>Apps Completos</h3>
+                <h3>Aplicações Mobile</h3>
                 <div class="app-carousel-container">
                     <div class="app-carousel" id="apps-carousel">
                         <img src="assets/revonutri/revonutri1.PNG" alt="App Revonutri 1">
@@ -525,16 +955,54 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Vamos Conversar?</h2>
-            <p>Pronto para transformar sua ideia em realidade? Entre em contato conosco!</p>
-            <a href="https://wa.me/5531984926620?text=Olá! Gostaria de solicitar um orçamento para desenvolvimento de software." class="cta-button" target="_blank">📱 Entrar em Contato</a>
+            <div class="contact-content">
+                <h2>Vamos Construir Algo Incrível</h2>
+                <p>Pronto para transformar suas ideias em soluções de software escaláveis e de alta performance? Vamos discutir seu próximo projeto.</p>
+                <a href="https://wa.me/5531984926620?text=Olá! Gostaria de discutir um projeto de desenvolvimento de software." class="cta-button" target="_blank">🚀 Iniciar Conversa</a>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            <span>Resposta Rápida</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <span>Propostas Detalhadas</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎯</div>
+                        <div>
+                            <strong>Consultoria</strong><br>
+                            <span>Análise Gratuita do Projeto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 GSA Softeng. Todos os direitos reservados.</p>
+        <div class="footer-content">
+            <div class="footer-brand">GSA Tech</div>
+            <p class="footer-text">Construindo o futuro com soluções de engenharia de software de ponta</p>
+            
+            <div class="footer-social">
+                <a href="#" class="social-link" title="GitHub">🐙</a>
+                <a href="#" class="social-link" title="LinkedIn">💼</a>
+                <a href="#" class="social-link" title="Twitter">🐦</a>
+                <a href="https://wa.me/5531984926620" class="social-link" title="WhatsApp" target="_blank">💬</a>
+            </div>
+            
+            <div class="footer-copy">
+                <p>&copy; 2024 GSA Tech. Todos os direitos reservados. | Excelência em Engenharia de Software</p>
+            </div>
         </div>
     </footer>
 
